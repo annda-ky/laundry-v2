@@ -1,0 +1,15 @@
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.actions {
+    display: flex;
+    gap: var(--space-1);
+}
+
+.inactive {
+    opacity: 0.6;
+}

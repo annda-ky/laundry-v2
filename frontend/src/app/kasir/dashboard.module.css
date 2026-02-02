@@ -1,0 +1,53 @@
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.tableCard {
+    margin-top: var(--space-6);
+}
+
+.orderLink {
+    color: var(--color-primary);
+    font-weight: 600;
+    transition: color var(--transition-fast);
+}
+
+.orderLink:hover {
+    color: var(--color-secondary);
+}
+
+.customerInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.customerName {
+    font-weight: 500;
+}
+
+.customerPhone {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+}
+
+.serviceList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.serviceItem {
+    font-size: 0.8125rem;
+    padding: var(--space-1) var(--space-2);
+    background: var(--color-bg);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+}
+
+.moreItems {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}

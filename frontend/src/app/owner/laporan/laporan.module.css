@@ -1,0 +1,60 @@
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+}
+
+.exportBtns {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.filterCard {
+    margin-bottom: var(--space-4);
+}
+
+.tabs {
+    display: flex;
+    gap: var(--space-2);
+    margin-bottom: var(--space-5);
+    border-bottom: 2px solid var(--color-bg-alt);
+    padding-bottom: var(--space-3);
+}
+
+.tab {
+    padding: var(--space-2) var(--space-4);
+    border: none;
+    background: transparent;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.tab:hover {
+    color: var(--color-primary);
+    background: var(--color-bg);
+}
+
+.tab.active {
+    color: var(--color-text-white);
+    background: var(--color-primary);
+}
+
+.filterRow {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.filterRow .form-group {
+    min-width: 180px;
+    margin-bottom: 0;
+}
+
+.chartContainer {
+    margin-top: var(--space-4);
+}

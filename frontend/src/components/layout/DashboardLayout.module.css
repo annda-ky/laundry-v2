@@ -1,0 +1,27 @@
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    background: var(--color-bg);
+    min-height: 100vh;
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: var(--space-4);
+    color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+    .main {
+        margin-left: 0;
+    }
+}

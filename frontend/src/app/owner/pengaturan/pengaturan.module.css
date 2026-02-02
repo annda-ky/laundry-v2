@@ -1,0 +1,137 @@
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: var(--space-6);
+}
+
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.templateOptions {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.templateOption {
+    flex: 1;
+    cursor: pointer;
+}
+
+.templateOption input {
+    display: none;
+}
+
+.templatePreview {
+    padding: var(--space-5);
+    border: 2px solid var(--color-bg-alt);
+    border-radius: var(--radius-md);
+    text-align: center;
+    transition: all var(--transition-fast);
+}
+
+.templateOption:hover .templatePreview {
+    border-color: var(--color-primary);
+}
+
+.templateOption.selected .templatePreview {
+    border-color: var(--color-primary);
+    background: rgba(30, 58, 95, 0.05);
+}
+
+.templateIcon {
+    font-size: 2rem;
+    margin-bottom: var(--space-2);
+}
+
+/* Nota Preview */
+.notaPreview {
+    background: white;
+    border: 1px solid var(--color-bg-alt);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    font-size: 0.875rem;
+}
+
+.notaHeader {
+    text-align: center;
+    margin-bottom: var(--space-4);
+}
+
+.notaLogo {
+    max-width: 80px;
+    max-height: 80px;
+    margin-bottom: var(--space-2);
+}
+
+.notaTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-1);
+}
+
+.notaAddress,
+.notaPhone {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.notaDivider {
+    border-top: 1px dashed var(--color-bg-alt);
+    margin: var(--space-3) 0;
+}
+
+.notaInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.notaInfo>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.notaInfo span {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+.notaItems {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.notaItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.notaTotal {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+}
+
+.notaTotal strong {
+    color: var(--color-primary);
+}
+
+.notaFooter {
+    text-align: center;
+    margin-top: var(--space-4);
+    color: var(--color-text-muted);
+    font-size: 0.8125rem;
+    font-style: italic;
+}
