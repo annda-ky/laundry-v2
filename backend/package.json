@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
+    "start:prod": "npx prisma db push && node prisma/seed.js && node src/index.js",
     "dev": "nodemon src/index.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
@@ -13,18 +14,18 @@
     "prisma:studio": "prisma studio"
   },
   "dependencies": {
-    "@prisma/client": "^5.8.0",
+    "@prisma/client": "^6.8.1",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "multer": "^1.4.5-lts.1",
-    "xlsx": "^0.18.5",
-    "pdfkit": "^0.14.0"
+    "pdfkit": "^0.14.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "nodemon": "^3.0.2",
-    "prisma": "^5.8.0"
+    "prisma": "^6.8.1"
   }
 }
