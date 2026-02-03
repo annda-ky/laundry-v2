@@ -8,6 +8,12 @@
   margin-left: var(--sidebar-width);
   background: var(--color-bg);
   min-height: 100vh;
+  transition: margin-left 0.3s ease;
+}
+
+/* When sidebar is collapsed */
+.mainCollapsed {
+  margin-left: 72px;
 }
 
 .loading {
@@ -24,6 +30,13 @@
   .main {
     margin-left: 0;
     padding-top: 60px; /* Space for mobile header */
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+  }
+
+  .mainCollapsed {
+    margin-left: 0;
   }
 }
 
@@ -69,6 +82,15 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 45;
   animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 768px) {

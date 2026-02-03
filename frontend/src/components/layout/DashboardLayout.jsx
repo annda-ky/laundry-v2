@@ -10,6 +10,22 @@ function DashboardContent({ children, allowedRoles }) {
   const router = useRouter();
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+  // Load collapsed state from localStorage
+  useEffect(() => {
+    const saved = localStorage.getItem("sidebarCollapsed");
+    if (saved !== null) {
+      setSidebarCollapsed(JSON.parse(saved));
+    }
+  }, []);
+
+  // Save collapsed state to localStorage
+  const handleToggleCollapse = () => {
+    const newState = !sidebarCollapsed;
+    setSidebarCollapsed(newState);
+    localStorage.setItem("sidebarCollapsed", JSON.stringify(newState));
+  };
 
   useEffect(() => {
     if (!loading && !user) {
@@ -52,9 +68,18 @@ function DashboardContent({ children, allowedRoles }) {
         <span className={styles.mobileLogo}>🧺 LaundryKu</span>
       </div>
 
-      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <Sidebar
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+        isCollapsed={sidebarCollapsed}
+        onToggleCollapse={handleToggleCollapse}
+      />
 
-      <main className={styles.main}>{children}</main>
+      <main
+        className={`${styles.main} ${sidebarCollapsed ? styles.mainCollapsed : ""}`}
+      >
+        {children}
+      </main>
 
       {/* Overlay for mobile when sidebar is open */}
       {sidebarOpen && (

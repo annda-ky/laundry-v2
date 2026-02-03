@@ -111,6 +111,8 @@ body {
   color: var(--color-text-primary);
   line-height: 1.6;
   min-height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scroll globally */
+  max-width: 100vw;
 }
 
 a {
@@ -175,6 +177,27 @@ h6 {
 
 .page-content {
   padding: var(--space-6);
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .page-content {
+    padding: var(--space-4) var(--space-6);
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
 }
 
 .page-header {
@@ -316,11 +339,38 @@ h6 {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
   .grid-2,
   .grid-3,
   .grid-4 {
     grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  /* Compact stat cards for mobile */
+  .stat-card {
+    padding: var(--space-3);
+    gap: var(--space-3);
+  }
+
+  .stat-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.25rem;
+  }
+
+  .stat-value {
+    font-size: 1.375rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
   }
 }
 
@@ -513,6 +563,7 @@ h6 {
   box-shadow: var(--shadow-sm);
   overflow-x: auto; /* Enable horizontal scroll */
   -webkit-overflow-scrolling: touch;
+  max-width: 100%;
 }
 
 .table {

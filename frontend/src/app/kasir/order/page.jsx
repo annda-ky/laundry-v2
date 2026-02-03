@@ -140,7 +140,7 @@ export default function OrderListPage() {
           ) : orders.length > 0 ? (
             <>
               {/* Desktop Table */}
-              <div className="table-container">
+              <div className={`table-container ${styles.desktopTable}`}>
                 <table className="table">
                   <thead>
                     <tr>

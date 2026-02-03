@@ -18,14 +18,22 @@ const kasirMenuItems = [
   { path: "/kasir/order/new", label: "Order Baru", icon: "➕" },
 ];
 
-export default function Sidebar({ isOpen, onClose }) {
+export default function Sidebar({
+  isOpen,
+  onClose,
+  isCollapsed,
+  onToggleCollapse,
+}) {
   const { user, logout } = useAuth();
   const pathname = usePathname();
 
   const menuItems = user?.role === "OWNER" ? ownerMenuItems : kasirMenuItems;
 
   return (
-    <aside className={`${styles.sidebar} ${isOpen ? styles.open : ""}`}>
+    <aside
+      className={`${styles.sidebar} ${isOpen ? styles.open : ""} ${isCollapsed ? styles.collapsed : ""}`}
+    >
+      {/* Mobile close button */}
       <button
         className={styles.closeBtn}
         onClick={onClose}
@@ -34,23 +42,36 @@ export default function Sidebar({ isOpen, onClose }) {
         ✕
       </button>
 
+      {/* Desktop collapse toggle */}
+      <button
+        className={styles.collapseBtn}
+        onClick={onToggleCollapse}
+        aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+        title={isCollapsed ? "Expand" : "Collapse"}
+      >
+        {isCollapsed ? "»" : "«"}
+      </button>
+
       <div className={styles.logo}>
         <span className={styles.logoIcon}>🧺</span>
-        <span className={styles.logoText}>LaundryKu</span>
+        {!isCollapsed && <span className={styles.logoText}>LaundryKu</span>}
       </div>
 
       <nav className={styles.nav}>
         <div className={styles.navSection}>
-          <span className={styles.navLabel}>Menu</span>
+          {!isCollapsed && <span className={styles.navLabel}>Menu</span>}
           <ul className={styles.navList}>
             {menuItems.map((item) => (
               <li key={item.path}>
                 <Link
                   href={item.path}
                   className={`${styles.navItem} ${pathname === item.path ? styles.active : ""}`}
+                  title={isCollapsed ? item.label : undefined}
                 >
                   <span className={styles.navIcon}>{item.icon}</span>
-                  <span className={styles.navText}>{item.label}</span>
+                  {!isCollapsed && (
+                    <span className={styles.navText}>{item.label}</span>
+                  )}
                 </Link>
               </li>
             ))}
@@ -59,20 +80,32 @@ export default function Sidebar({ isOpen, onClose }) {
       </nav>
 
       <div className={styles.footer}>
-        <div className={styles.userInfo}>
-          <div className={styles.userAvatar}>
-            {user?.name?.charAt(0) || user?.username?.charAt(0) || "U"}
-          </div>
-          <div className={styles.userDetails}>
-            <span className={styles.userName}>
-              {user?.name || user?.username}
-            </span>
-            <span className={styles.userRole}>{user?.role}</span>
-          </div>
-        </div>
-        <button onClick={logout} className={styles.logoutBtn}>
-          🚪 Logout
-        </button>
+        {!isCollapsed ? (
+          <>
+            <div className={styles.userInfo}>
+              <div className={styles.userAvatar}>
+                {user?.name?.charAt(0) || user?.username?.charAt(0) || "U"}
+              </div>
+              <div className={styles.userDetails}>
+                <span className={styles.userName}>
+                  {user?.name || user?.username}
+                </span>
+                <span className={styles.userRole}>{user?.role}</span>
+              </div>
+            </div>
+            <button onClick={logout} className={styles.logoutBtn}>
+              🚪 Logout
+            </button>
+          </>
+        ) : (
+          <button
+            onClick={logout}
+            className={styles.logoutBtnCollapsed}
+            title="Logout"
+          >
+            🚪
+          </button>
+        )}
       </div>
     </aside>
   );

@@ -1,15 +1,93 @@
 .loading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .actions {
-    display: flex;
-    gap: var(--space-1);
+  display: flex;
+  gap: var(--space-1);
 }
 
 .inactive {
-    opacity: 0.6;
+  opacity: 0.6;
+}
+
+/* Mobile Cards */
+.mobileCards {
+  display: none;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.serviceCard {
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  border: 1px solid var(--color-bg-alt);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3);
+}
+
+.cardTitle {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  font-size: 1rem;
+}
+
+.cardDetails {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.cardRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardActions {
+  display: flex;
+  gap: var(--space-2);
+  border-top: 1px dashed var(--color-bg-alt);
+  padding-top: var(--space-3);
+}
+
+.actionBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: var(--color-bg-alt);
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.actionBtn:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+  .desktopTable {
+    display: none;
+  }
+
+  .mobileCards {
+    display: flex;
+  }
 }

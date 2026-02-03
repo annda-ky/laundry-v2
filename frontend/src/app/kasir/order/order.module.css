@@ -199,8 +199,8 @@
     flex-direction: column;
   }
 
-  /* Hide table on mobile, targeting the container div */
-  .table-container {
+  /* Hide table on mobile */
+  .desktopTable {
     display: none;
   }
 

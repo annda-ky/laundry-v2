@@ -12,6 +12,12 @@
   left: 0;
   top: 0;
   z-index: 50;
+  transition: width 0.3s ease;
+}
+
+/* Collapsed state */
+.sidebar.collapsed {
+  width: 72px;
 }
 
 .logo {
@@ -20,10 +26,17 @@
   gap: var(--space-3);
   padding: var(--space-6);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  min-height: 80px;
+}
+
+.sidebar.collapsed .logo {
+  justify-content: center;
+  padding: var(--space-4);
 }
 
 .logoIcon {
   font-size: 2rem;
+  flex-shrink: 0;
 }
 
 .logoText {
@@ -31,12 +44,18 @@
   font-weight: 700;
   color: var(--color-text-white);
   letter-spacing: -0.5px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .nav {
   flex: 1;
   padding: var(--space-5);
   overflow-y: auto;
+}
+
+.sidebar.collapsed .nav {
+  padding: var(--space-3);
 }
 
 .navSection {
@@ -71,6 +90,11 @@
   margin-bottom: var(--space-1);
 }
 
+.sidebar.collapsed .navItem {
+  justify-content: center;
+  padding: var(--space-3);
+}
+
 .navItem:hover {
   background: rgba(255, 255, 255, 0.1);
   color: var(--color-text-white);
@@ -84,15 +108,24 @@
 
 .navIcon {
   font-size: 1.25rem;
+  flex-shrink: 0;
 }
 
 .navText {
   flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .footer {
   padding: var(--space-4);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar.collapsed .footer {
+  padding: var(--space-3);
+  display: flex;
+  justify-content: center;
 }
 
 .userInfo {
@@ -114,11 +147,13 @@
   justify-content: center;
   font-weight: 600;
   font-size: 1rem;
+  flex-shrink: 0;
 }
 
 .userDetails {
   flex: 1;
   min-width: 0;
+  overflow: hidden;
 }
 
 .userName {
@@ -157,6 +192,25 @@
   color: white;
 }
 
+.logoutBtnCollapsed {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoutBtnCollapsed:hover {
+  background: rgba(231, 76, 60, 0.8);
+}
+
+/* Close button for mobile */
 .closeBtn {
   display: none;
   position: absolute;
@@ -179,6 +233,35 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
+/* Collapse toggle button for desktop */
+.collapseBtn {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  right: -12px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: var(--color-primary);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: bold;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  z-index: 60;
+}
+
+.collapseBtn:hover {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Mobile responsive */
 @media (max-width: 768px) {
   .sidebar {
     width: 280px;
@@ -191,11 +274,39 @@
     box-shadow: var(--shadow-xl);
   }
 
+  .sidebar.collapsed {
+    width: 280px;
+  }
+
   .sidebar.open {
     transform: translateX(0);
   }
 
   .closeBtn {
     display: flex;
+  }
+
+  .collapseBtn {
+    display: none;
+  }
+
+  /* Always show text on mobile */
+  .sidebar.collapsed .logo {
+    justify-content: flex-start;
+    padding: var(--space-6);
+  }
+
+  .sidebar.collapsed .navItem {
+    justify-content: flex-start;
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .sidebar.collapsed .nav {
+    padding: var(--space-5);
+  }
+
+  .sidebar.collapsed .footer {
+    padding: var(--space-4);
+    display: block;
   }
 }
