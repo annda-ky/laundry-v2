@@ -1,162 +1,201 @@
 .sidebar {
-    width: var(--sidebar-width);
-    height: 100vh;
-    background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 50;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: linear-gradient(
+    180deg,
+    var(--color-primary) 0%,
+    var(--color-primary-dark) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 50;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    padding: var(--space-6);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logoIcon {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .logoText {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-text-white);
-    letter-spacing: -0.5px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-white);
+  letter-spacing: -0.5px;
 }
 
 .nav {
-    flex: 1;
-    padding: var(--space-5);
-    overflow-y: auto;
+  flex: 1;
+  padding: var(--space-5);
+  overflow-y: auto;
 }
 
 .navSection {
-    margin-bottom: var(--space-6);
+  margin-bottom: var(--space-6);
 }
 
 .navLabel {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: rgba(255, 255, 255, 0.4);
-    margin-bottom: var(--space-3);
-    padding-left: var(--space-3);
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: var(--space-3);
+  padding-left: var(--space-3);
 }
 
 .navList {
-    list-style: none;
+  list-style: none;
 }
 
 .navItem {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    padding: var(--space-3) var(--space-4);
-    border-radius: var(--radius-md);
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9375rem;
-    font-weight: 500;
-    transition: all var(--transition-fast);
-    margin-bottom: var(--space-1);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  margin-bottom: var(--space-1);
 }
 
 .navItem:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--color-text-white);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-white);
 }
 
 .navItem.active {
-    background: var(--color-secondary);
-    color: var(--color-text-white);
-    box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
+  background: var(--color-secondary);
+  color: var(--color-text-white);
+  box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
 }
 
 .navIcon {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 
 .navText {
-    flex: 1;
+  flex: 1;
 }
 
 .footer {
-    padding: var(--space-4);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--space-4);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .userInfo {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    padding: var(--space-3);
-    margin-bottom: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
 }
 
 .userAvatar {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-full);
-    background: var(--color-secondary);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--color-secondary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 .userDetails {
-    flex: 1;
-    min-width: 0;
+  flex: 1;
+  min-width: 0;
 }
 
 .userName {
-    display: block;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--color-text-white);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .userRole {
-    display: block;
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .logoutBtn {
-    width: 100%;
-    padding: var(--space-3);
-    border-radius: var(--radius-md);
-    border: none;
-    background: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.875rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all var(--transition-fast);
+  width: 100%;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
 }
 
 .logoutBtn:hover {
-    background: rgba(231, 76, 60, 0.8);
-    color: white;
+  background: rgba(231, 76, 60, 0.8);
+  color: white;
+}
+
+.closeBtn {
+  display: none;
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 1.25rem;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.closeBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 @media (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
+  .sidebar {
+    width: 280px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    transition: transform var(--transition-normal);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .closeBtn {
+    display: flex;
+  }
 }
